@@ -11,16 +11,18 @@ function App() {
     const imc = peso / (altura * altura);
     let classificacao = '';
 
-    if (imc < 18.5) {
-      classificacao = 'Baixo peso';
-    } else if (imc >= 18.5 && imc <= 24.99) {
+    if (imc < 18.4) {
+      classificacao = 'Abaixo peso';
+    } else if (imc <= 18.5 && imc <= 24.99) {
       classificacao = 'Peso normal';
-    } else if (imc >= 25 && imc <= 29.99) {
+    } else if (imc >= 24.99 && imc <= 29.99) {
       classificacao = 'Sobrepeso';
-    } else if (imc >= 30 && imc <= 34.9) {
+    } else if (imc >= 29.99 && imc <= 34.99) {
       classificacao = 'Obesidade grau I';
-    } else {
-      classificacao = 'Obesidade grau II ou III';
+    } else if (imc >= 34.99 && imc <= 39.99) {
+      classificacao = 'Obesidade grau II';
+    } else if (imc > 39.99) {
+      classificacao = 'Obesidade grau III ou Mórbida';
     }
 
     setResultado(`Seu IMC é: ${imc.toFixed(2)} - Classificação: ${classificacao}`);
